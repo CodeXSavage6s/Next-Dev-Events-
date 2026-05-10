@@ -2,6 +2,9 @@ import Navbar from '@/components/Navbar.tsx'
 import type { Metadata } from "next";
 import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
 import "./globals.css";
+import { PostHogProvider } from './providers'
+import { PostHogPageView } from './page-view'
+import { Suspense } from 'react'
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-schibsted-grotesk",
@@ -30,8 +33,13 @@ export default function RootLayout({
     >
     <body
         className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}>
+      <PostHogProvider>
+        <Suspense fallback={null}>
+          <PostHogPageView />
+        </Suspense>
         <Navbar />
-        <main className=""> {children}</main></body>
+        <main className=""> {children}</main>
+      </PostHogProvider></body>
     </html>
   );
 }
