@@ -49,12 +49,15 @@ BookingSchema.pre('save', async function (next) {
         const error = new Error(`Event with ID ${booking.eventId} does not exist`);
         error.name = 'ValidationError';
         return next(error);
+      } catch (error) {
+      if (error instanceof Error && error.name === 'CastError') {
+        const validationError = new Error('Invalid event ID format');
+        validationError.name = 'ValidationError';
+        return next(validationError);
       }
-    } catch {
-      const validationError = new Error('Invalid events ID format or database error');
-      validationError.name = 'ValidationError';
-      return next(validationError);
-    }
+      return next(error as Error);
+     }
+    } 
   }
 
   next();
