@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BookEvent from '@/components/BookEvent'
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const EventDetailItem = ({ icon, alt, label }: { icon: string; alt: string; label: string; }) => (
@@ -35,7 +36,7 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
   
   if (!data) return notFound()
   
-  const { title, description, overview, image, venue,
+  const { id, title, description, overview, image, venue,
       location, date, time, mode, audience, agenda, organizer, tags } = data.event
   
   return (
@@ -64,7 +65,9 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
         <EventTags tags={tags} />
       </div>
       <aside>
-        
+        <BookEvent 
+        event_id={id}
+        />
       </aside>
     </section>
     )
