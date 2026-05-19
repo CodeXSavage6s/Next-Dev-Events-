@@ -70,7 +70,7 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
         </section>
         <EventTags tags={tags} />
       </div>
-      <div className="events my-3">
+      <div className="events my-3 flex flex-col gap-2">
         <h2>Similar Events</h2>
                     {similarEvents.length > 0 && similarEvents.map((similarEvent) => (
                         <EventCard key={similarEvent.title} {...similarEvent} />
