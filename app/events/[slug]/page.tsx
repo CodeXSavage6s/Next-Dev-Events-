@@ -45,6 +45,7 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
   const count = await getBookingCountByEventId(id);
   const similarEvents = await getSimilarEvents(tags, id);
   
+  console.log("image", image)
   return (
     <section>
       <h1>Description</h1>
