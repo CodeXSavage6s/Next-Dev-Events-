@@ -123,7 +123,7 @@ export default function CreateEventPage() {
       console.log("success", data)
       setSuccess('Event created successfully!');
       setLoading(false)
-      router.push('../../')
+      router.push('/')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
       setLoading(false)

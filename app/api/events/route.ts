@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
     
-    console.log("recieved", formData)
+    //console.log("recieved", formData)
     const file = formData.get('image') as File | null;
     if (!file) {
       return NextResponse.json({ error: "No image provided" }, { status: 400 });

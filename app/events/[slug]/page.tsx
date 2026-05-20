@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BookEvent from '@/components/BookEvent'
 import { getBookingCountByEventId, getSimilarEvents } from '@/app/actions/action'
-import EventCard from '@/components/EventCard.tsx'
+import EventCard from '@/components/EventCard'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -74,7 +74,7 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
       <div className="events my-3 flex flex-col gap-2">
         <h2>Similar Events</h2>
                     {similarEvents.length > 0 && similarEvents.map((similarEvent) => (
-                        <EventCard key={similarEvent.title} {...similarEvent} />
+                        <EventCard key={similarEvent.id} {...similarEvent} />
                     ))}
                 </div>
       <aside>
