@@ -36,7 +36,7 @@ export default function BookEvent({event_id, count}: {event_id: string, count: n
   
   return (
     <form className="flex flex-col gap-2 p-2 rounded-lg bg-gray-900 my-3" onSubmit={handleBooking}>
-      <p>
+      <p className="text-center font-bold">
         {
           currentCount === null ? "Failed to load" :
           currentCount === 0 ? "Be First to book event" : `${currentCount} number of people have booked event ${15 - currentCount} left`

@@ -17,7 +17,7 @@ export default function SelectableChip({
   isCustom = false,
 }: SelectableChipProps) {
   return (
-    <div
+    <button
       onClick={onToggle}
       className={`
         inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium
@@ -40,6 +40,6 @@ export default function SelectableChip({
           }}
         />
       )}
-    </div>
+    </button>
   );
 }

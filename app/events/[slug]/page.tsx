@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BookEvent from '@/components/BookEvent'
+import { notFound } from "next/navigation";
 import { getBookingCountByEventId, getSimilarEvents } from '@/app/actions/action'
 import EventCard from '@/components/EventCard'
 
