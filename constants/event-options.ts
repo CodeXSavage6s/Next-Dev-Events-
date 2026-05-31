@@ -1,0 +1,42 @@
+// constants/event-options.ts
+
+export const PRESET_TAGS = [
+  'Next.js',
+  'React',
+  'TypeScript',
+  'JavaScript',
+  'Frontend',
+  'Backend',
+  'Fullstack',
+  'AI',
+  'LLM',
+  'Machine Learning',
+  'DevOps',
+  'Kubernetes',
+  'Cloud',
+  'Web Performance',
+  'Open Source',
+  'Tooling',
+  'System Design',
+  'Microservices',
+  'RAG',
+  'Containers',
+];
+
+export const PRESET_AGENDA = [
+  'Opening Keynote',
+  'Networking Breakfast',
+  'Morning Coffee Break',
+  'Lunch & Networking',
+  'Afternoon Break',
+  'Panel Discussion',
+  'Live Demo Session',
+  'Workshop Session',
+  'Fireside Chat',
+  'Lightning Talks',
+  'Q&A Session',
+  'Closing Remarks',
+  'Evening Mixer',
+  'Sponsor Showcase',
+  'Community Roundtable',
+];

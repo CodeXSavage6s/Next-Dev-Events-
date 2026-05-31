@@ -1,35 +1,47 @@
 "use client"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-export default function BookEvent({event_id}: {event_id: string}) {
+export default function BookEvent({event_id, count}: {event_id: string, count: number}) {
   
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
+  const [currentCount, setCurrentCount] = useState(count)
   const [message, setMessage] = useState("")
   
   const formData = new FormData()
   
+  
   formData.append('email', email)
   formData.append('event_id', event_id)
   
-  async function handleBooking() {
-  setLoading(true)
-  try {
-    const response = await fetch(`${BASE_URL}/api/events/booking`, {
-      method: "POST",
-      body: formData
-    })
+  async function handleBooking(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    try {
+      const response = await fetch(`${BASE_URL}/api/events/booking`, {
+        method: "POST",
+        body: formData
+      })
+      
+      if (!response.ok) throw new Error("Booking failed");
     
-    setMessage("Booked Successfully!!")
-  } catch (err) {
-    console.log("error")
-    setMessage("Failed try again")
-  }
-  }
+      setMessage("Booked Successfully!!")
+      setCurrentCount((prev) => prev + 1);
+    } catch (err) {
+      console.log("error")
+      setMessage("Failed try again")
+    }
+   }
   
   return (
-    <form className="flex flex-col gap-2 p-2 rounded-lg bg-gray-900" onSubmit={handleBooking}>
+    <form className="flex flex-col gap-2 p-2 rounded-lg bg-gray-900 my-3" onSubmit={handleBooking}>
+      <p className="text-center font-bold">
+        {
+          currentCount === null ? "Failed to load" :
+          currentCount === 0 ? "Be First to book event" : `${currentCount} number of people have booked event ${15 - currentCount} left`
+        }
+      </p>
       <span className={`p-2 text-center `}>
         {
           message && message 

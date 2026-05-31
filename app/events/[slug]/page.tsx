@@ -1,5 +1,9 @@
 import Image from "next/image";
 import BookEvent from '@/components/BookEvent'
+import { notFound } from "next/navigation";
+import { getBookingCountByEventId, getSimilarEvents } from '@/app/actions/action'
+import EventCard from '@/components/EventCard'
+
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const EventDetailItem = ({ icon, alt, label }: { icon: string; alt: string; label: string; }) => (
@@ -39,6 +43,10 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
   const { id, title, description, overview, image, venue,
       location, date, time, mode, audience, agenda, organizer, tags } = data.event
   
+  const count = await getBookingCountByEventId(id);
+  const similarEvents = await getSimilarEvents(tags, id);
+  
+  console.log("image", image)
   return (
     <section>
       <h1>Description</h1>
@@ -64,9 +72,15 @@ export default async function Detail({params}: { params: Promise<{ slug: string}
         </section>
         <EventTags tags={tags} />
       </div>
+      <div className="events my-3 flex flex-col gap-2">
+        <h2>Similar Events</h2>
+                    {similarEvents.length > 0 && similarEvents.map((similarEvent) => (
+                        <EventCard key={similarEvent.id} {...similarEvent} />
+                    ))}
+                </div>
       <aside>
         <BookEvent 
-        event_id={id}
+        event_id={id} count={count}
         />
       </aside>
     </section>
