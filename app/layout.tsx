@@ -5,7 +5,11 @@ import "./globals.css";
 import { PostHogProvider } from './providers'
 import { PostHogPageView } from './page-view'
 import { Suspense } from 'react'
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+//const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 
+  (process.env.NODE_ENV === 'production'
+    ? 'https://next-dev-events-sigma.vercel.app'   // ← put your real vercel url here
+    : 'http://localhost:3000');
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-schibsted-grotesk",
