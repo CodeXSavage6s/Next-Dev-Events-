@@ -123,7 +123,7 @@ export const metadata: Metadata = {
   },
 
   // Manifest
-  manifest: '/site.webmanifest',
+  //manifest: '/site.webmanifest',
 
   // Theme
   category: 'technology',
