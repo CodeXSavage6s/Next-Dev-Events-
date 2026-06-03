@@ -3,8 +3,10 @@ import BookEvent from '@/components/BookEvent'
 import { notFound } from "next/navigation";
 import { getBookingCountByEventId, getSimilarEvents } from '@/app/actions/action'
 import EventCard from '@/components/EventCard'
+import { BASE_URL } from "@/app/layout"; // Adjust path based on your setup
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+//const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const EventDetailItem = ({ icon, alt, label }: { icon: string; alt: string; label: string; }) => (
     <div className="flex flex-row gap-2 items-center">
