@@ -5,13 +5,32 @@ import EventCard from '@/components/EventCard'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+interface Event {
+  id: number;
+  title: string;
+  slug: string;
+  description: string;
+  overview: string;
+  image: string;
+  venue: string;
+  location: string;
+  date: string;
+  time: string;
+  mode: string;
+  audience: string;
+  organizer: string;
+  agenda: string[];
+  tags: string[];
+  created_at: string;
+  updated_at: string;
+}
 
 export default async function Home() {
   'use cache'
   cacheLife('hours')
   const response = await fetch(`${BASE_URL}/api/events`)
   
-  const { events } = await response.json()
+  const { events } : { events: Event[] } = await response.json()
   
   return (
     <div className="flex flex-col flex-1 font-sans dark:bg-black text-center">
