@@ -45,7 +45,7 @@ export default async function Home() {
   
   const  events : Event[]  = await getEvents()
 
-  console.log("BODY:", events.lenght);
+  //console.log("BODY:", events.lenght);
 
   
   return (
