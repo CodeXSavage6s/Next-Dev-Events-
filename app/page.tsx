@@ -2,7 +2,7 @@ import { cacheLife } from 'next/cache'
 import Image from "next/image";
 import ExploreBtn from '@/components/ExploreBtn'
 import EventCard from '@/components/EventCard'
-import { getEvents } from "@/actions/action"
+import { getEvents } from "@/app/actions/action"
 
 //import { BASE_URL } from "@/app/layout"; // Adjust path based on your setup
 
