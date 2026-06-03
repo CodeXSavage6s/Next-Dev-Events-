@@ -38,7 +38,13 @@ export default async function Home() {
   cacheLife('hours')
   const response = await fetch(`${BASE_URL}/api/events`)
   
+  console.log("STATUS:", response.status);
+console.log("URL:", `${BASE_URL}/api/events`);
+  
   const { events } : { events: Event[] } = await response.json()
+
+  console.log("BODY:", events);
+
   
   return (
     <div className="flex flex-col flex-1 font-sans dark:bg-black text-center">
