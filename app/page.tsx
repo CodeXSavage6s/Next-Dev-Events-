@@ -43,7 +43,7 @@ export default async function Home() {
   //console.log("STATUS:", response.status);
 //console.log("URL:", `${BASE_URL}/api/events`);
   
-  const { events } : { events: Event[] } = await getEvents()
+  const  events : Event[]  = await getEvents()
 
   console.log("BODY:", events);
 
