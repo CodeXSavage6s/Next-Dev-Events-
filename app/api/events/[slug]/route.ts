@@ -69,14 +69,14 @@ export async function GET(
       }
 
       return NextResponse.json(
-        { message: 'Failed to fetch event', error: error.message },
+        { message: 'Failed to fetch event' },
         { status: 500 }
       );
     }
 
     // Handle unknown errors
     return NextResponse.json(
-      { message: 'An unexpected error occurred', error: error.message },
+      { message: 'An unexpected error occurred' },
       { status: 500 }
     );
   }
