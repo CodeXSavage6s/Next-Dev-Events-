@@ -1,7 +1,7 @@
 import { cacheLife } from 'next/cache'
 import Image from "next/image";
-import ExploreBtn from '@/components/ExploreBtn.tsx'
-import EventCard from '@/components/EventCard.tsx'
+import ExploreBtn from '@/components/ExploreBtn'
+import EventCard from '@/components/EventCard'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
