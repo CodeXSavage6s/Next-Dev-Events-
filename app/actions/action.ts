@@ -2,6 +2,14 @@
 
 import { query } from '@/lib/db';
 
+export async function getEvents() {
+  const { rows } = await query(
+    "SELECT * FROM events ORDER BY date ASC"
+  );
+
+  return rows;
+}
+
 export async function getBookingCountByEventId(id: string): Promise<number> {
   const { rows } = await query(
     'SELECT COUNT(*) as count FROM bookings WHERE event_id = $1',

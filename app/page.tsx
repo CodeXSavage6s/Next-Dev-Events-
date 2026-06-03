@@ -2,15 +2,17 @@ import { cacheLife } from 'next/cache'
 import Image from "next/image";
 import ExploreBtn from '@/components/ExploreBtn'
 import EventCard from '@/components/EventCard'
+import { getEvents } from "@/actions/action"
+
 //import { BASE_URL } from "@/app/layout"; // Adjust path based on your setup
 
 
 //const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 
+/*const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 
   (process.env.NODE_ENV === 'production'
     ? 'https://next-dev-events-sigma.vercel.app'   // ← put your real vercel url here
-    : 'http://localhost:3000');
+    : 'http://localhost:3000');*/
 
 
 interface Event {
@@ -36,12 +38,12 @@ interface Event {
 export default async function Home() {
   'use cache'
   cacheLife('hours')
-  const response = await fetch(`${BASE_URL}/api/events`)
+//  const response = await fetch(`${BASE_URL}/api/events`)
   
-  console.log("STATUS:", response.status);
-console.log("URL:", `${BASE_URL}/api/events`);
+  //console.log("STATUS:", response.status);
+//console.log("URL:", `${BASE_URL}/api/events`);
   
-  const { events } : { events: Event[] } = await response.json()
+  const { events } : { events: Event[] } = await getEvents()
 
   console.log("BODY:", events);
 
