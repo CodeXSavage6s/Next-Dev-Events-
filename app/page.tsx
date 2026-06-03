@@ -2,8 +2,10 @@ import { cacheLife } from 'next/cache'
 import Image from "next/image";
 import ExploreBtn from '@/components/ExploreBtn'
 import EventCard from '@/components/EventCard'
+import { BASE_URL } from "@/app/layout"; // Adjust path based on your setup
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+//const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 interface Event {
   id: number;
