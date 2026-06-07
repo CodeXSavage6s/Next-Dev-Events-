@@ -5,9 +5,9 @@ const poolConfig = {
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 20000,
-  ssl: {
-    rejectUnauthorized: false // Required for some hosted environments
-  }
+  ssl: process.env.NODE_ENV === 'production'
+    ? { rejectUnauthorized: false }
+    : false
 };
 
 const globalForDb = global as unknown as { pool: Pool };
