@@ -53,8 +53,10 @@ export default async function Home() {
         <section>
           <h1 className="text-center text-3xl">The Hub For Every Dev <br />Event You Can't Miss</h1>
     <p className="text-center mt-5">Hackathon, Meet Up and Confrence all in One Place</p>
+    <div className="w-full flex justify-center items-center p-2">
     <ExploreBtn />
-        </section>
+    </div>
+        </section>  
     <div className="mt-5">
       <h3>Featured Events</h3>
       <ul className="events">
