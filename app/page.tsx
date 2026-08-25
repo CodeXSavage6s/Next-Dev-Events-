@@ -51,14 +51,14 @@ export default async function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans dark:bg-black text-center">
         <section>
-          <h1 className="text-center text-3xl">The Hub For Every Dev <br />Event You Can't Miss</h1>
+          <h1 className="text-center text-3xl">The Hub For Every Dev<br />Event You Can't Miss</h1>
     <p className="text-center mt-5">Hackathon, Meet Up and Confrence all in One Place</p>
     <div className="w-full flex justify-center items-center p-2">
     <ExploreBtn />
     </div>
         </section>  
     <div className="mt-5">
-      <h3>Featured Events</h3>
+      <h2 className='mb-'>Featured Events</h2>
       <ul className="events">
       {
         events?.map((event) => (
